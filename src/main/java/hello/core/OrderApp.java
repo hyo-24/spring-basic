@@ -11,8 +11,9 @@ import hello.core.order.OrderServiceImpl;
 public class OrderApp {
 
     static void main() {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig(); // 관리자 객체로 아래 객체들을 생성해 주입
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         long memberId = 1L;
         Member member = new Member(memberId, Grade.VIP, "memberA");
@@ -21,5 +22,6 @@ public class OrderApp {
         Order order = orderService.createOrder(memberId,"itemA",10000);
 
         System.out.println("order = "+order);
+        System.out.println("order = "+order.calculatePrice());
     }
 }
