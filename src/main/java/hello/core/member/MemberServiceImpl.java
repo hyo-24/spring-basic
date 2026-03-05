@@ -12,6 +12,10 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.save(member);
     }
 
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
+
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
