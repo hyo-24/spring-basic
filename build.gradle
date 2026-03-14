@@ -10,7 +10,7 @@ description = 'Demo project for Spring Boot'
 
 configurations {
 	compileOnly{
-		extendsFrom annotationProcesser
+		extendsFrom annotationProcessor
 	}
 }
 
